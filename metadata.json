@@ -1,0 +1,6 @@
+{
+  "name": "Venture Craft",
+  "description": "An in-depth colorful pixel-art startup, venture capital, stock market, crypto, and economic sandbox simulation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

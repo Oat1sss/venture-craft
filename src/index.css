@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --pixel-ink: #1b1929;
+    --pixel-paper: #f6f1e4;
+    --pixel-panel: #fffdf7;
+    --pixel-panel-alt: #ece4d0;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--pixel-paper);
+    color: var(--pixel-ink);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-pixel {
+  font-family: "Silkscreen", monospace;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-num {
+  font-family: "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.pixel-box {
+  border: 2px solid #1b1929;
+  box-shadow: 4px 4px 0px #1b1929;
+  background-color: #fffdf7;
+}
+
+.pixel-box-sm {
+  border: 2px solid #1b1929;
+  box-shadow: 2px 2px 0px #1b1929;
+}
+
+.pixel-btn {
+  border: 2px solid #1b1929;
+  box-shadow: 3px 3px 0px #1b1929;
+  transition: transform 80ms ease, box-shadow 80ms ease, background-color 120ms ease;
+}
+
+.pixel-btn:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #1b1929;
+}
+
+.pixel-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #1b1929;
+}
+
+.pixel-btn:disabled {
+  background-color: #ded6c4 !important;
+  color: #5b5670 !important;
+  box-shadow: 2px 2px 0px #5b5670;
+  cursor: not-allowed;
+}
+
+.pixel-grid-bg {
+  background-color: #f4efe1;
+  background-image:
+    linear-gradient(to right, rgba(27, 25, 41, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 25, 41, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pixel-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@keyframes moneyPopUp {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  18% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.06);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-22px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-32px) scale(0.95);
+  }
+}
+
+.animate-money-pop {
+  animation: moneyPopUp 1.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-btn {
+    transition: none;
+  }
+  .animate-money-pop {
+    animation: none;
+    opacity: 1;
+  }
+}
